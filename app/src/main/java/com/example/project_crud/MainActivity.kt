@@ -71,9 +71,9 @@ class MainActivity : AppCompatActivity() {
     fun deleteRecordAlertDialog(empModel: EmpModel) {
         val builder = AlertDialog.Builder(this)
 
-        builder.setTitle("Delete Record")
-        builder.setMessage("Are You Sure")
-        builder.setIcon(android.R.drawable.ic_dialog_alert)
+        builder.setTitle("Hapus?")
+        builder.setMessage("Hapus Data Terpilih?")
+        builder.setIcon(android.R.drawable.ic_delete)
 
         // menampilkan tombol yes
         builder.setPositiveButton("Yes") { dialog: DialogInterface, which ->
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             if(!name.isEmpty() && !email.isEmpty()){
                 val status = databaseHandler.updateEmployee(EmpModel(empModel.id,name,email))
                 if(status > -1){
-                    Toast.makeText(this, "Record Update",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Berhasil Edit",Toast.LENGTH_SHORT).show()
                     setupListOfDataIntoRecyclerView()
                     updateDialog.dismiss()
                     closeKeyboard()
@@ -128,13 +128,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Nama is email cannot be",Toast.LENGTH_SHORT).show()
             }
 
-            Toast.makeText( this, "Update Berhasil",Toast.LENGTH_SHORT).show()
+            Toast.makeText( this, "Berhasil Menambahkan",Toast.LENGTH_SHORT).show()
         }
         updateDialog.tvCancel.setOnClickListener{
             updateDialog.dismiss()
         }
 
         updateDialog.show()
+        closeKeyboard()
     }
 
     // method to close keyboard

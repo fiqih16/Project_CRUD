@@ -43,7 +43,7 @@
         android:contentDescription="Image"
         android:foreground="?attr/selectableItemBackground"
         android:scaleType="center"
-        android:src="@drawable/ic_edit"/>
+        android:src="@android:drawable/ic_menu_edit"/>
 
     <ImageView
         android:id="@+id/iv_delete"
@@ -52,7 +52,7 @@
         android:contentDescription="Image"
         android:foreground="?attr/selectableItemBackground"
         android:scaleType="center"
-        android:src="@drawable/ic_hapus"/>
+        android:src="@android:drawable/ic_menu_delete"/>
 
 
 

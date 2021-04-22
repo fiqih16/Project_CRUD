@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Project_CRUD</string>
+    <string name="inputNama">Masukkan Nama</string>
 </resources>

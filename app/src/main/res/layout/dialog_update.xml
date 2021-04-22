@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Berhasil"
-        android:textColor="@color/black"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
         android:textStyle="bold"/>
 
@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Enter Name"/>
+            android:hint="@string/inputNama"/>
 
     </LinearLayout>
 
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Enter Email"/>
+            android:hint="Masukkan Email"/>
 
     </LinearLayout>
 
@@ -70,8 +70,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="Update"
-
-            android:textColor="@color/black"
+            android:textColor="@android:color/holo_blue_dark"
             android:textStyle="bold"
             />
 
@@ -83,8 +82,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="Cancel"
-
-            android:textColor="@color/black"
+            android:textColor="@android:color/holo_blue_dark"
             android:textStyle="bold"
             />
 
