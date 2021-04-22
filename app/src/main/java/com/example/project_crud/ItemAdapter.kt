@@ -13,6 +13,8 @@ class ItemAdapter(val context: Context, val items: ArrayList<EmpModel>) : Recycl
         val linlay = view.Linlay
         val tvnama = view.Tv_nama
         val tvemail = view.Tv_email
+        val ivEdit = view.iv_edit
+        val ivDelete = view.iv_delete
 
     }
 
@@ -32,11 +34,22 @@ class ItemAdapter(val context: Context, val items: ArrayList<EmpModel>) : Recycl
         holder.tvnama.text = item.nama
         holder.tvemail.text = item.email
 
-        if(position % 2 == 0){
-            holder.linlay.setBackgroundColor(ContextCompat.getColor(context,R.color.kuninggelap))
+        if(position % 2 == 0) {
+            holder.linlay.setBackgroundColor(ContextCompat.getColor(context, R.color.kuninggelap))
+        }else{
             holder.linlay.setBackgroundColor(ContextCompat.getColor(context,R.color.Abu))
         }
+        holder.ivDelete.setOnClickListener{
+            if (context is MainActivity)
+            context.deleteRecordAlertDialog(item)
+        }
+        holder.ivEdit.setOnClickListener{
+            if(context is MainActivity){
+                context.updateRecordDialog(item)
+            }
+        }
     }
+
 
     override fun getItemCount(): Int {
         return items.size

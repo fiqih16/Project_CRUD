@@ -37,12 +37,22 @@
         android:text="Email"/>
 
     <ImageView
+        android:id="@+id/iv_edit"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="Image"
         android:foreground="?attr/selectableItemBackground"
         android:scaleType="center"
         android:src="@drawable/ic_edit"/>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="Image"
+        android:foreground="?attr/selectableItemBackground"
+        android:scaleType="center"
+        android:src="@drawable/ic_hapus"/>
 
 
 

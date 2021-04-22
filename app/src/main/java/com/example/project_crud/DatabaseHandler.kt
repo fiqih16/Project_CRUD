@@ -36,18 +36,19 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     // Methot untuk memasukkan DATA / Record
 
-    fun addEmployee(emp: EmpModel) : Long{
+    fun addEmployee(emp: EmpModel): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(KEY_NAME,emp.nama)
-        contentValues.put(KEY_EMAIL,emp.email)
+        contentValues.put(KEY_NAME, emp.nama)
+        contentValues.put(KEY_EMAIL, emp.email)
         // Memasukkan detail karyawan menggunakan kueri sisipkan
-        val success = db.insert(TABLE_CONTACTS,null,contentValues)
+        val success = db.insert(TABLE_CONTACTS, null, contentValues)
         db.close()
         return success
     }
+
     // method to read the records
-    fun viewEmployee(): ArrayList<EmpModel>{
+    fun viewEmployee(): ArrayList<EmpModel> {
         val empList: ArrayList<EmpModel> = ArrayList<EmpModel>()
         val selectQuery = "SELECT * FROM $TABLE_CONTACTS"
 
@@ -56,8 +57,8 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         var cursor: Cursor? = null
 
         try {
-            cursor = db.rawQuery(selectQuery,null)
-        }catch (e: SQLException){
+            cursor = db.rawQuery(selectQuery, null)
+        } catch (e: SQLException) {
             db.execSQL(selectQuery)
             return ArrayList()
         }
@@ -65,16 +66,40 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         var nama: String
         var email: String
 
-        if (cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 id = cursor.getInt(cursor.getColumnIndex(KEY_ID))
                 nama = cursor.getString(cursor.getColumnIndex(KEY_NAME))
                 email = cursor.getString(cursor.getColumnIndex(KEY_EMAIL))
-                val emp = EmpModel(id=id, nama=nama, email=email)
+                val emp = EmpModel(id = id, nama = nama, email = email)
                 empList.add(emp)
-            }while (cursor.moveToNext())
+            } while (cursor.moveToNext())
         }
         return empList
+    }
+
+    // method untuk menghapus data/record dalam database
+    fun deleteEmployee(emp: EmpModel): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, emp.id)
+
+        val success = db.delete(TABLE_CONTACTS, KEY_ID + "=" + emp.id, null)
+        db.close()
+        return success
+    }
+
+    // method untuk mengupdate data/record
+    fun updateEmployee(emp: EmpModel): Int {
+        val db = this.writableDatabase
+        val contentvalues = ContentValues()
+        contentvalues.put(KEY_NAME, emp.nama)
+        contentvalues.put(KEY_EMAIL, emp.email)
+
+
+        val success = db.update(TABLE_CONTACTS, contentvalues, KEY_ID + "=" + emp.id,null)
+        db.close()
+        return success
     }
 
 }
