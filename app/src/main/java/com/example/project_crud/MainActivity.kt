@@ -158,6 +158,8 @@ class MainActivity : AppCompatActivity() {
         closeKeyboard()
     }
 
+
+    // metode untuk menampilkan dialog detail
     fun showDetail(empModel: EmpModel){
         val showdetail = Dialog(this,R.style.Theme_Dialog)
 
