@@ -18,13 +18,18 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         private val KEY_ID = "_id"
         private val KEY_NAME = "name"
         private val KEY_EMAIL = "email"
+
+        private val KEY_PHONE = "phone"
+        private val KEY_ALAMAT = "alamat"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NAME + " TEXT,"
-                + KEY_EMAIL + " TEXT)")
+                + KEY_EMAIL + " TEXT,"
+                + KEY_PHONE + " TEXT,"
+                + KEY_ALAMAT + " TEXT)")
         db?.execSQL(CREATE_CONTACTS_TABLE)
     }
 
@@ -41,13 +46,17 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         val contentValues = ContentValues()
         contentValues.put(KEY_NAME, emp.nama)
         contentValues.put(KEY_EMAIL, emp.email)
+
+        contentValues.put(KEY_PHONE, emp.phone)
+        contentValues.put(KEY_ALAMAT, emp.alamat)
+
         // Memasukkan detail karyawan menggunakan kueri sisipkan
         val success = db.insert(TABLE_CONTACTS, null, contentValues)
         db.close()
         return success
     }
 
-    // method to read the records
+    // metode untuk membaca catatan
     fun viewEmployee(): ArrayList<EmpModel> {
         val empList: ArrayList<EmpModel> = ArrayList<EmpModel>()
         val selectQuery = "SELECT * FROM $TABLE_CONTACTS"
@@ -65,13 +74,20 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         var id: Int
         var nama: String
         var email: String
+        var phone: String
+        var alamat: String
+
 
         if (cursor.moveToFirst()) {
             do {
                 id = cursor.getInt(cursor.getColumnIndex(KEY_ID))
                 nama = cursor.getString(cursor.getColumnIndex(KEY_NAME))
                 email = cursor.getString(cursor.getColumnIndex(KEY_EMAIL))
-                val emp = EmpModel(id = id, nama = nama, email = email)
+
+                phone = cursor.getString(cursor.getColumnIndex(KEY_PHONE))
+                alamat = cursor.getString(cursor.getColumnIndex(KEY_ALAMAT))
+
+                val emp = EmpModel(id = id, nama = nama, email = email, phone = phone, alamat = alamat)
                 empList.add(emp)
             } while (cursor.moveToNext())
         }
@@ -95,6 +111,9 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         val contentvalues = ContentValues()
         contentvalues.put(KEY_NAME, emp.nama)
         contentvalues.put(KEY_EMAIL, emp.email)
+
+        contentvalues.put(KEY_PHONE, emp.phone)
+        contentvalues.put(KEY_ALAMAT, emp.alamat)
 
 
         val success = db.update(TABLE_CONTACTS, contentvalues, KEY_ID + "=" + emp.id,null)

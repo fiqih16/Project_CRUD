@@ -7,34 +7,57 @@
     android:id="@+id/Linlay"
     android:padding="10dp">
 
-
-    <TextView
-        android:id="@+id/Tv_nama"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:text="Nama" />
+        android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <TextView
+            android:id="@+id/Tv_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:textStyle="bold"
-        android:text=":" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:text=":"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold" />-->
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
 
-    <TextView
-        android:id="@+id/Tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:layout_weight="1"
-        android:text="Email"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_detail"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="Image"
+        android:foreground="?attr/selectableItemBackground"
+        android:scaleType="center"
+        android:src="@android:drawable/ic_menu_more"/>
 
     <ImageView
         android:id="@+id/iv_edit"
@@ -53,7 +76,6 @@
         android:foreground="?attr/selectableItemBackground"
         android:scaleType="center"
         android:src="@android:drawable/ic_menu_delete"/>
-
 
 
 </LinearLayout>

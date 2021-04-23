@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Berhasil"
+        android:text="Data Lengkap"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
         android:textStyle="bold"/>
@@ -25,12 +25,13 @@
             android:layout_weight="0.25"
             android:text="Name"
             android:textSize="18sp"/>
-        <EditText
-            android:id="@+id/etUpdateteName"
+        <TextView
+            android:id="@+id/etUpdateteNameMore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="@string/inputNama"/>
+            android:textSize="18sp"
+            />
 
     </LinearLayout>
 
@@ -46,12 +47,13 @@
             android:layout_weight="0.25"
             android:text="Email"
             android:textSize="18sp"/>
-        <EditText
-            android:id="@+id/etUpdateteEmail"
+        <TextView
+            android:id="@+id/etUpdateteEmailMore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Masukkan Email"/>
+            android:textSize="18sp"
+            />
 
     </LinearLayout>
 
@@ -67,13 +69,13 @@
             android:layout_weight="0.25"
             android:text="NO HP"
             android:textSize="18sp"/>
-        <EditText
-            android:id="@+id/etUpdatetePhone"
+        <TextView
+            android:id="@+id/etUpdatetePhoneMore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Masukkan NO HP"
-            android:inputType="phone"/>
+            android:inputType="phone"
+            android:textSize="18sp"/>
 
     </LinearLayout>
 
@@ -89,12 +91,13 @@
             android:layout_weight="0.25"
             android:text="Alamat"
             android:textSize="18sp"/>
-        <EditText
-            android:id="@+id/etUpdateteAlamat"
+        <TextView
+            android:id="@+id/etUpdateteAlamatMore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.75"
-            android:hint="Masukkan Alamat"/>
+            android:textSize="18sp"
+            />
 
     </LinearLayout>
 
@@ -105,26 +108,15 @@
         android:padding="10dp"
         android:gravity="end">
 
-        <TextView
-            android:id="@+id/tvUpdated"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Update"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textStyle="bold"
-            />
 
         <TextView
-            android:id="@+id/tvCancel"
+            android:id="@+id/tvSelesai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Cancel"
+            android:text="Selesai"
             android:textColor="@android:color/holo_blue_dark"
             android:textStyle="bold"
             />

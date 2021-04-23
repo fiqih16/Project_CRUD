@@ -12,9 +12,13 @@ class ItemAdapter(val context: Context, val items: ArrayList<EmpModel>) : Recycl
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val linlay = view.Linlay
         val tvnama = view.Tv_nama
-        val tvemail = view.Tv_email
+//        val tvemail = view.Tv_email
         val ivEdit = view.iv_edit
         val ivDelete = view.iv_delete
+        val ivDetail = view.iv_detail
+
+//        val tvphone = view.Tv_Phone
+//        val tvalamat = view.Tv_Alamat
 
     }
 
@@ -32,7 +36,10 @@ class ItemAdapter(val context: Context, val items: ArrayList<EmpModel>) : Recycl
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items.get(position)
         holder.tvnama.text = item.nama
-        holder.tvemail.text = item.email
+//        holder.tvemail.text = item.email
+//
+//        holder.tvphone.text = item.phone
+//        holder.tvalamat.text = item.alamat
 
         if(position % 2 == 0) {
             holder.linlay.setBackgroundColor(ContextCompat.getColor(context, R.color.kuninggelap))
@@ -48,6 +55,13 @@ class ItemAdapter(val context: Context, val items: ArrayList<EmpModel>) : Recycl
                 context.updateRecordDialog(item)
             }
         }
+        holder.ivDetail.setOnClickListener{
+            if (context is MainActivity) {
+                context.showDetail(item)
+            }
+        }
+
+
     }
 
 
